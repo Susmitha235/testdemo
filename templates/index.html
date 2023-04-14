@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Example</title>
+</head>
+<body>
+    <h1>Camera Example</h1>
+    <button onclick="startCamera()">Start</button>
+    
+    <div>
+        <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    </div>
+    <script>
+        function startCamera() {
+            fetch('/start_camera')
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(error => {
+                    console.error('Error starting camera:', error);
+                });
+        }
+
+        
+    </script>
+</body>
+</html>
